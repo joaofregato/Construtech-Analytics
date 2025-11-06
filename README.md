@@ -1,132 +1,144 @@
 # Construtech Analytics 🏗️📊
-Projeto autoral que integra Google Cloud, Databricks e Power BI para automatizar o fluxo de indicadores de uma construtora, unificando dados operacionais e dashboards executivos inteligentes.
+**Projeto autoral que integra Google Cloud, Databricks e Power BI para automatizar o fluxo de indicadores de uma construtora, unificando dados operacionais e dashboards executivos inteligentes.**
 
-📌 Visão Geral do Projeto
+---
 
-O Construtech Analytics é um projeto de análise de dados desenvolvido para demonstrar como é possível integrar ferramentas modernas de engenharia de dados e BI em um fluxo automatizado, conectando planilhas operacionais no Google Drive ao Power BI por meio do Databricks e do Google Cloud Platform (GCP).
+## 💡 Contexto
 
-O objetivo é gerar insights estratégicos para construtoras, com dashboards que monitoram produtividade, retrabalho, avanço físico, satisfação do cliente e indicadores de sustentabilidade.
+Trabalhando com indicadores da construção civil, percebi que boa parte das empresas ainda depende de planilhas Excel descentralizadas e atualizações manuais.
+Esse projeto nasceu da necessidade de **automatizar todo o fluxo de dados corporativos**, garantindo que informações de cronograma, produtividade, qualidade, sustentabilidade e satisfação do cliente sejam atualizadas **diariamente e de forma confiável**.
 
-(Os dados utilizados neste projeto são fictícios e simulam operações reais da construtora onde trabalho.)
+O **Construtech Analytics** é o resultado dessa proposta: um **pipeline de dados moderno**, desenvolvido no **Databricks** e conectado ao **Google Drive** e **Power BI**, com tratamento automatizado e armazenamento otimizado em **tabelas Delta**.
 
-🎯 Objetivos
+*(Os dados utilizados neste projeto são **fictícios** e simulam operações reais da construtora onde trabalho atualmente.)*
 
-Construir um pipeline automatizado de atualização de dados (ETL completo).
 
-Demonstrar integração entre Google Drive → Databricks → Power BI.
+---
 
-Tratar e preparar dados de diferentes planilhas da empresa.
+## 🎯 Objetivos
 
-Criar dashboards executivos com indicadores de desempenho e sustentabilidade.
+* Construir um **pipeline automatizado** de atualização de dados (ETL completo) a partir de planilhas armazenadas no Google Drive.
+* Demonstrar integração entre **Google Drive → Databricks → Power BI**.
+* Tratar e preparar dados de diferentes planilhas e abas da empresa.
+* Gerar **dashboards interativos** com indicadores estratégicos para gestão de obras.
 
-🛠️ Linguagens & Ferramentas
+---
 
-Python (Pandas, Google API Client) → extração e tratamento dos dados.
+## 🛠️ Linguagens & Ferramentas
 
-Databricks → orquestração e armazenamento dos dados tratados.
+* **Python (Pandas, Google API Client)** → extração e tratamento dos dados.
+* **Delta Tables (Databricks)** → armazenamento otimizado e atualização incremental.
+* **Databricks** → orquestração e armazenamento dos dados tratados.
+* **Google Cloud Service Account** → autenticação segura e acesso aos arquivos.
+* **Power BI** → modelagem, criação de KPIs e dashboards.
+* **DAX** → calculos e métricas via Power BI.
+* **SQL** → manipulação de dados via Databricks.
 
-Google Cloud Service Account → autenticação segura e acesso aos arquivos.
+---
 
-Power BI → modelagem, criação de KPIs e dashboards.
+## 📂 Fontes de Dados
 
-Delta Tables (Databricks) → armazenamento otimizado e atualização incremental.
+As fontes originais são **planilhas Excel** armazenadas no **Google Drive** da empresa, divididas em múltiplas abas (por exemplo, *Produtividade*, *Retrabalho*, *Avanço de Obra*, *Cliente*, *Sustentabilidade*).
+Essas planilhas são sincronizadas diariamente com o Databricks via **Jobs agendados**.
 
-📂 Fontes de Dados
+---
 
-As fontes originais são planilhas Excel armazenadas no Google Drive da empresa, divididas em múltiplas abas (por exemplo, Produtividade, Retrabalho, Avanço de Obra, Cliente).
-Essas planilhas são sincronizadas diariamente com o Databricks via Jobs agendados.
+## 🔄 Fluxo do Projeto
 
-🔄 Fluxo do Projeto
-1. Extração (Google Drive → Databricks)
+### 1. **Extração (Google Drive → Databricks)**
 
-Integração via Google Cloud Service Account.
+* Integração via **Google Cloud Service Account**.
+* Uso das bibliotecas `googleapiclient` e `google-auth` para autenticação e download dos arquivos Excel.
+* O script identifica a planilha e aba desejada e realiza a leitura via **Pandas**.
 
-Uso da biblioteca googleapiclient para autenticação e download dos arquivos Excel.
+### 2. **Transformação (ETL no Databricks)**
 
-O script identifica a planilha e aba desejada e realiza a leitura via Pandas.
+* Tratamento de valores nulos, padronização de datas e tipos de dados.
+* Normalização automática de colunas com detecção de *datetime*.
+* Unificação de abas e planilhas (*union all*) em um dataframe consolidado.
+* Conversão para formato **Parquet/Delta** (A etapa de transformação em Parquet neste contexto está sendo utilizado apenas como uma boa prática de pipeline de dados e pode ser excluída).
 
-2. Transformação (ETL no Databricks)
+### 3. **Carregamento (Delta Table → Power BI)**
 
-Tratamento de valores nulos, padronização de datas e tipos de dados.
+* Criação de tabelas catalogadas no Databricks para consumo pelo Power BI.
+* Conexão direta via **Databricks Connector** no Power BI.
+* Atualizações automáticas programadas no Power BI Service.
 
-Normalização automática de colunas com detecção de datetime.
-
-Unificação de abas e planilhas (union all) em um dataframe consolidado.
-
-Conversão para formato Parquet/Delta.
-
-3. Carregamento (Delta Table → Power BI)
-
-Criação de tabelas catalogadas no Databricks para consumo pelo Power BI.
-
-Conexão direta via Databricks Connector no Power BI.
-
-Atualizações automáticas programadas no Power BI Service.
-
-4. Visualização (Dashboards no Power BI)
+### 4. **Visualização (Dashboards no Power BI)**
 
 Foram criadas múltiplas páginas de dashboards com KPIs e análises:
 
-Dashboard Executivo → visão geral com principais indicadores.
+* **Dashboard Executivo** → visão geral com principais indicadores.
+* **Avanço de Obra** → monitoramento de cronograma e progresso físico.
+* **Produtividade** → análise do IGP e eficiência das equipes.
+* **Retrabalho** → controle de serviços reprovados e taxas de retrabalho.
+* **Cliente** → monitoramento de satisfação de cliente.
+* **Sustentabilidade** → consumo de recursos, geração de resíduos e impacto ambiental.
 
-Avanço de Obra → monitoramento de cronograma e progresso físico.
+---
 
-Produtividade → análise do IGP e eficiência das equipes.
+## 🧱 Exemplo de Dashboards
 
-Retrabalho → controle de serviços reprovados e taxas de retrabalho.
+### 📊 Dashboard Executivo
 
-Cliente & Sustentabilidade → satisfação, consumo de recursos e resíduos.
+![Dashboard Executivo](https://github.com/joaofregato/ConstrutechAnalytics/blob/main/imagens/dashboard_executivo.png)
 
-🧱 Exemplo de Dashboards
-📊 Dashboard Executivo
+### 🏗️ Avanço de Obra
 
+![Avanço de Obra](https://github.com/joaofregato/ConstrutechAnalytics/blob/main/imagens/avanco_obra.png)
 
+### ⚙️ Produtividade
 
+![Produtividade](https://github.com/joaofregato/ConstrutechAnalytics/blob/main/imagens/produtividade.png)
 
-🏗️ Avanço de Obra
+### 🔁 Retrabalho
 
+![Retrabalho](https://github.com/joaofregato/ConstrutechAnalytics/blob/main/imagens/retrabalho.png)
 
+---
 
+## 📁 Estrutura do Repositório
 
-⚙️ Produtividade
-
-
-
-
-🔁 Retrabalho
-
-
-
-
-📁 Estrutura do Repositório
+```plaintext
 /ConstrutechAnalytics
 │── /databricks         # Scripts Python e notebooks (ETL + automação)
 │── /power bi           # Dashboard (.pbix)
 │── /images             # Screenshots dos dashboards
 │── README.md           # Documentação do projeto
-🚀 Como Executar
+```
 
-Configure uma conta de serviço no Google Cloud Platform (GCP).
+---
 
-Salve o JSON de credenciais e aponte o caminho no script Python.
+## 🚀 Como Executar
 
-Execute o notebook no Databricks.
+1. Configure uma conta de serviço no **Google Cloud Platform (GCP)**.
+2. Salve o JSON de credenciais e aponte o caminho no script Python.
+3. Execute o notebook no **Databricks**.
+4. Configure um **Job** para execução diária.
+5. Conecte o **Power BI** ao Databricks e carregue as tabelas Delta.
 
-Configure um Job para execução diária.
+---
 
-Conecte o Power BI ao Databricks e carregue as tabelas Delta.
+## 💡 Principais Aprendizados
 
-💡 Principais Aprendizados
+* Integração segura entre **GCP** e **Databricks**.
+* Automação de ETL com agendamento de Jobs.
+* Tratamento de dados multi-aba e multi-planilha com **Pandas/Python**.
+* Modelagem de dados, storytelling visual e estratégico no **Power BI**.
+* Monitoramento e gestão estrátégica e performática de uma construtora.
 
-Integração segura entre GCP e Databricks.
+---
 
-Automação de ETL com agendamento de Jobs.
+## 📈 Resultados
 
-Tratamento de dados multi-aba e multi-planilha com Pandas.
+* **Redução de 95% da intervenção manual** na atualização de indicadores.
+* Dados padronizados e disponíveis no Power BI em **menos de 10 minutos após o preenchimento** das planilhas.
+* Dashboards executivos com **atualização automática diária** e rastreabilidade total da origem dos dados.
+* Insights para apoio de decisões estratégicas.
 
-Modelagem de dados e storytelling visual no Power BI.
+---
 
-👷‍♂️ Autor
+## 👷‍♂️ Autor
 
-João Fregato
-LinkedIn | Power BI | GitHub
+**João Fregato**
+[LinkedIn](https://www.linkedin.com/in/joaofregato) | [GitHub](https://github.com/joaofregato)
