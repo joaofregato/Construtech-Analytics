@@ -68,32 +68,38 @@ Essas planilhas são sincronizadas diariamente com o Databricks via **Jobs agend
 
 Foram criadas múltiplas páginas de dashboards com KPIs e análises:
 
-* **Dashboard Executivo** → visão geral com principais indicadores.
-* **Avanço de Obra** → monitoramento de cronograma e progresso físico.
-* **Produtividade** → análise do IGP e eficiência das equipes.
-* **Retrabalho** → controle de serviços reprovados e taxas de retrabalho.
-* **Cliente** → monitoramento de satisfação de cliente.
-* **Sustentabilidade** → consumo de recursos, geração de resíduos e impacto ambiental.
+## 🧱 Dashboards
 
----
+### 📊 Dashboard Executivo → visão geral com principais indicadores.
 
-## 🧱 Exemplo de Dashboards
+![Dashboard Executivo]([https://github.com/joaofregato/Construtech-Analytics/blob/main/imagens/dashboard%20executivo.png])
 
-### 📊 Dashboard Executivo
+### 🏗️ Avanço de Obra → monitoramento de cronograma e progresso físico.
 
-![Dashboard Executivo](https://github.com/joaofregato/ConstrutechAnalytics/blob/main/imagens/dashboard_executivo.png)
+![Avanço de Obra](https://github.com/joaofregato/Construtech-Analytics/blob/main/imagens/avan%C3%A7o%20de%20obra.png)
 
-### 🏗️ Avanço de Obra
+### ⚙️ Produtividade → análise do IGP e eficiência das equipes.
 
-![Avanço de Obra](https://github.com/joaofregato/ConstrutechAnalytics/blob/main/imagens/avanco_obra.png)
+![Produtividade](https://github.com/joaofregato/Construtech-Analytics/blob/main/imagens/produtividade.png)
 
-### ⚙️ Produtividade
+### 🔁 Retrabalho → controle de serviços reprovados e taxas de retrabalho.
 
-![Produtividade](https://github.com/joaofregato/ConstrutechAnalytics/blob/main/imagens/produtividade.png)
+![Retrabalho](https://github.com/joaofregato/Construtech-Analytics/blob/main/imagens/retrabalho.png)
 
-### 🔁 Retrabalho
+### ✨ Cliente → monitoramento de satisfação de cliente.
 
-![Retrabalho](https://github.com/joaofregato/ConstrutechAnalytics/blob/main/imagens/retrabalho.png)
+![Cliente](https://github.com/joaofregato/Construtech-Analytics/blob/main/imagens/cliente.png)
+
+### ♻️ Sustentabilidade → consumo de recursos, geração de resíduos e impacto ambiental.
+
+![Sustentabilidade](https://github.com/joaofregato/Construtech-Analytics/blob/main/imagens/cliente.png)
+
+### 🔍 Ferramenta de filtro retrátil (UX/UI)
+
+![Filtro](https://github.com/joaofregato/Construtech-Analytics/blob/main/imagens/filtro%20retr%C3%A1til.png)
+
+## ⭐ Modelagem de dados
+![Modelagem de dados](https://github.com/joaofregato/Construtech-Analytics/blob/main/imagens/modelo.png)
 
 ---
 
