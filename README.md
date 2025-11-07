@@ -72,7 +72,7 @@ Foram criadas múltiplas páginas de dashboards com KPIs e análises:
 
 ### 📊 Dashboard Executivo → visão geral com principais indicadores.
 
-![Dashboard Executivo]([https://github.com/joaofregato/Construtech-Analytics/blob/main/imagens/dashboard%20executivo.png])
+![Dashboard Executivo](https://github.com/joaofregato/Construtech-Analytics/blob/main/imagens/dashboard%20executivo.png)
 
 ### 🏗️ Avanço de Obra → monitoramento de cronograma e progresso físico.
 
@@ -92,7 +92,7 @@ Foram criadas múltiplas páginas de dashboards com KPIs e análises:
 
 ### ♻️ Sustentabilidade → consumo de recursos, geração de resíduos e impacto ambiental.
 
-![Sustentabilidade](https://github.com/joaofregato/Construtech-Analytics/blob/main/imagens/cliente.png)
+![Sustentabilidade](https://github.com/joaofregato/Construtech-Analytics/blob/main/imagens/sustentabilidade.png)
 
 ### 🔍 Ferramenta de filtro retrátil (UX/UI)
 
