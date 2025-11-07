@@ -1,6 +1,8 @@
 # Construtech Analytics 🏗️📊
 **Projeto autoral que integra Google Cloud, Databricks e Power BI para automatizar o fluxo de indicadores de uma construtora, unificando dados operacionais e dashboards executivos inteligentes.**
 
+- **Confira o dashboard** 🧐 →  [Cosntrutech Analytics](https://app.powerbi.com/view?r=eyJrIjoiMDAyYTExYjgtOTQ4ZS00ZTEwLWFjYzEtMGI0MTJkODYxNzQ3IiwidCI6ImFlMjU3ZDlmLWFkNDYtNDllZi04MDdjLWNmNzczOTdhMDQwYSJ9)
+  
 ---
 
 ## 💡 Contexto
@@ -108,7 +110,6 @@ Foram criadas múltiplas páginas de dashboards com KPIs e análises:
 ```plaintext
 /ConstrutechAnalytics
 │── /databricks         # Scripts Python e notebooks (ETL + automação)
-│── /power bi           # Dashboard (.pbix)
 │── /images             # Screenshots dos dashboards
 │── README.md           # Documentação do projeto
 ```
